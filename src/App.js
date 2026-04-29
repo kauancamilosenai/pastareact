@@ -7,6 +7,7 @@ function App() {
   const [pokemons, setPokemons] = useState({}); 
   const [loading, setLoading] = useState(true); 
   const [error, setError] = useState(false); 
+
 useEffect(() => {
   const getData = async () => {
     try {const res = await
@@ -22,14 +23,10 @@ useEffect(() => {
     }
   };
   getData();
-}, {})
-
-
-
-
+}, {}) 
 
   if (loading) return <div className='loader'>
-    Carregando Vagabundex
+    Carregando...
     </div>;
  
  if (error) return <div className='error'>
