@@ -11,7 +11,7 @@ function App() {
 useEffect(() => {
   const getData = async () => {
     try {const res = await
-      axios.get('https://pokeapi.co/api/v2/pokemon/bulbasaur');
+      axios.get('https://pokeapi.co/api/v2/pokemon/charmander');
       setPokemons(res.data);
       console.log('Success:', res.data);
       setLoading(false);
@@ -31,11 +31,19 @@ useEffect(() => {
  
  if (error) return <div className='error'>
   ocorreu um erro inesperado
-  </div>
+  </div>;
 
-  return (
+  return(
     <div className="App">
-      <h1> POKEMON list! </h1>
+      <h1>POKEMON CARD</h1>
+      <div className="pokemon-container">
+        <div className="pokemon-card">
+          <h3>{pokemons.name}</h3>
+          <h4>{pokemons.type}tuffox</h4>
+          <img src={pokemons.sprites.front_shiny} alt={pokemons.name}/>
+          <h3>{pokemons.stats[0].stat.name+' '+pokemons.stats[0].base_stat+' '+pokemons.stats[1].stat.name+' '+pokemons.stats[0].base_stat}</h3>
+        </div>
+      </div>
     </div>
   );
 }

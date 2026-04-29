@@ -36,3 +36,15 @@
     transform: rotate(360deg);
   }
 }
+
+.pokemon-card{
+  padding: 100px;
+  text-align: center;
+  box-align: center;
+  padding: 10px;
+  height: 0 auto;
+  width: 170px;
+  margin: 0 auto;
+  background: radial-gradient(white , rgb(100, 100, 100));
+  border-radius: 10px;
+}
