@@ -1,23 +1,42 @@
-import logo from './logo.svg';
+import react, { useState, useEffect } from 'react';
+import axios from 'axion';
 import './App.css';
 
+const [pokemons, setPokemons] = useState ({});
+conste [loading, setLoading] = useState (true)
+const [error, setError] = useState (false)  
+
+userEffect(() => {
+  const getData = async () => {
+    try {
+      const res = await
+    axios.get('https//pokeapi.co/api/v2/pokemon/ditto');
+        serPokemons(res.data);
+        console.log('success:', res.data);
+        setLoading(false);
+    }
+    catch (err)  {
+      console.error ("erro ao carregar API", err);
+      setLoading(false)
+    setError (true)
+    }
+  };
+  getData();
+}, {});
+
 function App() {
+
+  if (loading) return <div 
+  className="loader"> carregando pokedex...
+  </div>;
+
+  if (error) return <div className="error">
+  ocorreu um erro inesperado
+  </div>
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <h1>pokemon</h1>
     </div>
   );
 }
