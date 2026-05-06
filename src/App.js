@@ -1,51 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import axios from  'axios';
-import './App.css';
+import React from "react";
+import{Route, BrowserRouter, Routes}from "react-router-dom";
+import Pokemon from "./pokemon"
+import Treinador from "./home"
 
-function App() {
-
-  const [pokemons, setPokemons] = useState({}); 
-  const [loading, setLoading] = useState(true); 
-  const [error, setError] = useState(false); 
-
-useEffect(() => {
-  const getData = async () => {
-    try {const res = await
-      axios.get('https://pokeapi.co/api/v2/pokemon/charmander');
-      setPokemons(res.data);
-      console.log('Success:', res.data);
-      setLoading(false);
-    }
-    catch (err) {
-      console.error("Error ao carregar API", err); 
-      setLoading(false)
-      setError(true)
-    }
-  };
-  getData();
-}, {}) 
-
-  if (loading) return <div className='loader'>
-    Carregando...
-    </div>;
- 
- if (error) return <div className='error'>
-  ocorreu um erro inesperado
-  </div>;
-
-  return(
-    <div className="App">
-      <h1>POKEMON CARD</h1>
-      <div className="pokemon-container">
-        <div className="pokemon-card">
-          <h3>{pokemons.name}</h3>
-          <h4>{pokemons.type}tuffox</h4>
-          <img src={pokemons.sprites.front_shiny} alt={pokemons.name}/>
-          <h3>{pokemons.stats[0].stat.name+' '+pokemons.stats[0].base_stat+' '+pokemons.stats[1].stat.name+' '+pokemons.stats[0].base_stat}</h3>
-        </div>
-      </div>
-    </div>
-  );
+function App(){
+    return(
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<Treinador/>}/>
+                <Route path="/home" element={<Treinador/>}/>
+            </Routes>
+        </BrowserRouter>
+    )
 }
-
 export default App;

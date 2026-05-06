@@ -1,0 +1,28 @@
+.titulo{
+    text-align: center;
+    font-size: 17px;
+}
+
+.info{
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSmSsa6kckkVDkUGb-JXFFOHvdpaEDIwuIFw&s");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.info{
+  padding: 20px;
+  text-align: center;
+  box-align: center;
+  height: 1 ;
+  width: 300px;
+  margin: 0 auto ;
+  background: radial-gradient(white , rgb(100, 100, 100));
+  border-radius: 10px;
+}
+
+.info img{
+    height: 150px;
+    width: 300px;
+}
