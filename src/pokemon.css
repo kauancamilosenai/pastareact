@@ -37,14 +37,26 @@
   }
 }
 
+.pokemon{
+  padding-top: ;
+  text-align: center;
+  color: white;
+}
+
 .pokemon-card{
+  color: black;
   padding: 100px;
   text-align: center;
   box-align: center;
   padding: 10px;
-  height: 0 auto;
+  height: max-content ;
   width: 170px;
-  margin: 0 auto;
+  margin: auto auto;
   background: radial-gradient(white , rgb(100, 100, 100));
   border-radius: 10px;
+}
+
+.pokemon image{
+  height: 100px;
+  width: 100px;
 }
