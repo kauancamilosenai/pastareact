@@ -14,6 +14,11 @@ function Treinador(){
                 <h2>Cassio</h2>
                 <h2>tenho 1 poquemom só</h2>
                 <h2>conquistas zeradas</h2>
+                    <div className="botoes">
+                        <button>pukemon</button>
+                        <button>pukemon</button>
+                        <button>pukemon</button>
+                    </div>
                 </div>
             </div>
         </div>
