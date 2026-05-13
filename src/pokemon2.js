@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import axios from  'axios';
 import './pokemon.css';
 
-function Pokemon() {
+function Pokemon2() {
 
   const [pokemons, setPokemons] = useState({}); 
   const [loading, setLoading] = useState(true); 
@@ -13,7 +13,7 @@ function Pokemon() {
 useEffect(() => {
   const getData = async () => {
     try {const res = await
-      axios.get('https://pokeapi.co/api/v2/pokemon/charmander');
+      axios.get('https://pokeapi.co/api/v2/pokemon/chimchar');
       setPokemons(res.data);
       console.log('Success:', res.data);
       setLoading(false);
@@ -60,4 +60,4 @@ useEffect(() => {
   );
 }
 
-export default Pokemon;
+export default Pokemon2;

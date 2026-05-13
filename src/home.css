@@ -33,7 +33,7 @@ body{
 
 .botao{
     cursor: pointer;
-    margin: 0px 5px;
+    margin: 15px 5px;
     background-image: url("image/pokeball.png");
     background-color: transparent;
     border: none;
@@ -47,4 +47,6 @@ body{
 
 .botao:hover{
     background-image: url('https://cdn.pixabay.com/photo/2019/11/18/15/46/pokemon-4635112_640.png');
+    height: 90px ;
+    width: 80px;
 }

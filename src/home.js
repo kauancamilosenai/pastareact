@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {Route, BrowserRouter, Routes} from "react-router-dom";
+import { Link } from 'react-router-dom';
 import './home.css'
 
 function Treinador(){
@@ -14,10 +15,15 @@ function Treinador(){
                 <h2>Cassio</h2>
                 <h2>tenho 1 poquemom só</h2>
                 <h2>conquistas zeradas</h2>
-                    <div>
-                        <button className="botao"></button>
-                        <button className="botao"></button>
-                        <button className="botao"></button>
+                    <div><Link to="/pokemon">
+                            <button className="botao"></button>
+                        </Link>
+                        <Link to="/pokemon2">
+                            <button className="botao"></button>
+                        </Link>
+                        <Link to="/pokemon2">
+                            <button className="botao"></button>
+                        </Link>
                     </div>
                 </div>
             </div>

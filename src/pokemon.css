@@ -38,7 +38,6 @@
 }
 
 .pokemon{
-  padding-top: ;
   text-align: center;
   color: white;
 }
@@ -59,4 +58,44 @@
 .pokemon image{
   height: 100px;
   width: 100px;
+}
+
+.buttonHome{
+  cursor: pointer;
+  margin: 15px 5px;
+  background-image: url("https://www.ordenhar.com.br/images/botao_voltar.png");
+  background-color: transparent;
+  border: none;
+  background: cover;
+  background-position: center;    
+  height: 50px ;
+  width: 120px ;
+  background-size: cover;
+}
+
+.buttonForward{
+  cursor: pointer;
+  margin: 15px 5px;
+  background-image: url("https://cdn.create.vista.com/api/media/medium/470899398/stock-vector-back-left-arrow-square-button-yellow-glowing-neon-icon?token=");
+  transform: scaleX(-1);
+  background-color: transparent;
+  border: none;
+  background: cover;
+  background-position: center;    
+  height: 50px ;
+  width: 50px ;
+  background-size: cover;
+}
+
+.buttonBack{
+  cursor: pointer;
+  margin: 15px 5px;
+  background-image: url("https://thumbs.dreamstime.com/b/ma%C3%A7%C3%A3-quadrada-em-um-fundo-branco-6016067.jpg");
+  background-color: transparent;
+  border: none;
+  background: cover;
+  background-position: center;    
+  height: 50px ;
+  width: 50px ;
+  background-size: cover;
 }
