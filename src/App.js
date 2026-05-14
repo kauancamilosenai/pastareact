@@ -1,8 +1,8 @@
 import React from "react";
 import{Route, BrowserRouter, Routes}from "react-router-dom";
-import Pokemon from "./pokemon"
-import Treinador from "./home"
-import Pokemon2 from "./pokemon2"
+import Pokemon from "./pages/pokemon/pokemon"
+import Treinador from "./pages/home/home"
+import Pokemon2 from "./pages/pokemon2/pokemon2"
 
 function App(){
     return(

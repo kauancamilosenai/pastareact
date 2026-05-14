@@ -3,37 +3,22 @@ import { BrowserRouter } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import axios from  'axios';
 import './pokemon.css';
+import UseEffectPokeApi from '../../hooks/useFetchPokeApi';
 
 function Pokemon() {
 
-  const [pokemons, setPokemons] = useState({}); 
-  const [loading, setLoading] = useState(true); 
-  const [error, setError] = useState(false); 
+  const {pokemons, loading, error} = UseEffectPokeApi("charmander"); 
+  const [setPokemons] = useState({}); 
+  const [setLoading] = useState(true); 
+  const [setError] = useState(false); 
 
-useEffect(() => {
-  const getData = async () => {
-    try {const res = await
-      axios.get('https://pokeapi.co/api/v2/pokemon/charmander');
-      setPokemons(res.data);
-      console.log('Success:', res.data);
-      setLoading(false);
-    }
-    catch (err) {
-      console.error("Error ao carregar API", err); 
-      setLoading(false)
-      setError(true)
-    }
-  };
-  getData();
-}, {}) 
-
-  if (loading) return <div className='loader'>
+ if (loading) return <div className='loader'>
     Carregando...
     </div>;
  
  if (error) return <div className='error'>
-  ocorreu um erro inesperado
-  </div>;
+    ocorreu um erro inesperado
+    </div>;
 
   return(
     <div className="pokemon">

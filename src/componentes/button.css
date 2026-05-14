@@ -1,0 +1,19 @@
+.botao{
+    cursor: pointer;
+    margin: 10px 5px;
+    background-image: url("C:\Users\kauan_camilo\Documents\GitHub\pastareact\src\assets\pokeball.png");
+    background-color: transparent;
+    border: none;
+    background: cover;
+    background-position: center;    
+    height: 70px ;
+    width: 70px;
+    background-size: cover;
+    transition: background-image 0.3s ease-in-out;
+}
+
+.botao:hover{
+    background-image: url('C:\Users\kauan_camilo\Documents\GitHub\pastareact\src\assets\greenball.png');
+    height: 70px ;
+    width: 70px;
+}

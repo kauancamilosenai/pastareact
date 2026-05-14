@@ -1,0 +1,32 @@
+.titulo{
+    color: white;
+    text-align: center;
+    font-size: 17px;
+}
+
+.info{
+    margin: 0 auto;
+    color: black;
+    padding: 20px;
+    text-align: center;
+    line-height: 1;
+    box-align: center;
+    height: auto ;
+    width: 300px;
+    box-align: center;
+    background: radial-gradient(white , rgb(100, 100, 100));
+    border-radius: 10px;
+}
+
+.info img{
+    height: 150px;
+    width: 300px;
+}
+
+body{
+    background-image: url("https://i.pinimg.com/736x/94/9a/f6/949af6e6e764976322ea0ca44fb7ad54.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}

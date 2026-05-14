@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {Route, BrowserRouter, Routes} from "react-router-dom";
 import { Link } from 'react-router-dom';
 import './home.css'
+import PokeButton from '../../componentes/buttons.js'
 
 function Treinador(){
     return(
@@ -15,20 +16,17 @@ function Treinador(){
                 <h2>Cassio</h2>
                 <h2>tenho 1 poquemom só</h2>
                 <h2>conquistas zeradas</h2>
-                    <div><Link to="/pokemon">
-                            <button className="botao"></button>
-                        </Link>
-                        <Link to="/pokemon2">
-                            <button className="botao"></button>
-                        </Link>
-                        <Link to="/pokemon2">
-                            <button className="botao"></button>
-                        </Link>
+                    <div>
+                        <Link to='./pokemon'><PokeButton></PokeButton></Link>
+                        <Link to='./pokemon2'><PokeButton></PokeButton></Link>
+                        <Link to='./pokemon3'><PokeButton></PokeButton></Link>
+                        <Link to='./pokemon4'><PokeButton></PokeButton></Link>
+                        <Link to='./pokemon5'><PokeButton></PokeButton></Link>
+                        <Link to='./pokemon6'><PokeButton></PokeButton></Link>
                     </div>
                 </div>
             </div>
         </div>
     );
 }
-
 export default Treinador;
