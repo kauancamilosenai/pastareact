@@ -2,18 +2,19 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import axios from  'axios';
-import './pokemon.css';
+import './pokemon5.css';
 
 function Pokemon5() {
 
   const [pokemons, setPokemons] = useState({}); 
   const [loading, setLoading] = useState(true); 
   const [error, setError] = useState(false); 
+  const paginaAtual = 5
 
 useEffect(() => {
   const getData = async () => {
     try {const res = await
-      axios.get('https://pokeapi.co/api/v2/pokemon/charmander');
+      axios.get('https://pokeapi.co/api/v2/pokemon/seedot');
       setPokemons(res.data);
       console.log('Success:', res.data);
       setLoading(false);
@@ -47,13 +48,13 @@ useEffect(() => {
           
         </div>
       </div>
-      <Link to="/pokemon">
+      <Link to={`/pokemon${paginaAtual-1}`}>
         <button className="buttonBack"></button>
       </Link>
       <Link to="/">
         <button className="buttonHome"></button>
       </Link>
-      <Link to="/pokemon2">
+      <Link to={`/pokemon${paginaAtual+1}`}>
         <button className="buttonForward"></button>
       </Link>
     </div>

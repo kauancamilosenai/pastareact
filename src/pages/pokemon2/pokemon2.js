@@ -5,12 +5,13 @@ import axios from  'axios';
 import './pokemon2.css';
 import useEffectPokeAp from '../../hooks/useFetchPokeApi'
 
-function Pokemon() {
+function Pokemon2() {
 
   const {pokemons, loading, error} = useEffectPokeAp("chimchar"); 
   const [setPokemons] = useState({}); 
   const [setLoading] = useState(true); 
   const [setError] = useState(false); 
+  const paginaAtual = 2
 
  if (loading) return <div className='loader'>
     Carregando...
@@ -32,17 +33,17 @@ function Pokemon() {
           
         </div>
       </div>
-      <Link to="/pokemon">
+      <Link to={`/pokemon${paginaAtual-1}`}>
         <button className="buttonBack"></button>
       </Link>
       <Link to="/">
         <button className="buttonHome"></button>
       </Link>
-      <Link to="/pokemon2">
+      <Link to={`/pokemon${paginaAtual+1}`}>
         <button className="buttonForward"></button>
       </Link>
     </div>
   );
 }
 
-export default Pokemon;
+export default Pokemon2;

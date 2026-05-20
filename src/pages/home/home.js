@@ -1,3 +1,4 @@
+//área dos imports, necessario caso queria usar algum componente de react
 import React, { useState, useEffect } from 'react';
 import {Route, BrowserRouter, Routes} from "react-router-dom";
 import { Link } from 'react-router-dom';
@@ -5,7 +6,7 @@ import './home.css'
 import PokeButton from '../../componentes/buttons.js'
 
 function Treinador(){
-    return(
+    return( //essa parte ACHO que é html, então de certa forma foi tranquila de fazer
         <div className="titulo"> 
         <h1>Treinador</h1>
             <div className="imagem">
@@ -17,12 +18,12 @@ function Treinador(){
                 <h2>tenho 1 poquemom só</h2>
                 <h2>conquistas zeradas</h2>
                     <div>
-                        <Link to='./pokemon'><PokeButton></PokeButton></Link>
-                        <Link to='./pokemon2'><PokeButton></PokeButton></Link>
-                        <Link to='./pokemon3'><PokeButton></PokeButton></Link>
-                        <Link to='./pokemon4'><PokeButton></PokeButton></Link>
-                        <Link to='./pokemon5'><PokeButton></PokeButton></Link>
-                        <Link to='./pokemon6'><PokeButton></PokeButton></Link>
+                        <Link to='./pokemon/charmander'><PokeButton></PokeButton></Link> 
+                        <Link to='./pokemon/chimchar'><PokeButton></PokeButton></Link>
+                        <Link to='./pokemon/abra'><PokeButton></PokeButton></Link>
+                        <Link to='./pokemon/terrakion'><PokeButton></PokeButton></Link>
+                        <Link to='./pokemon/seedot'><PokeButton></PokeButton></Link>
+                        <Link to='./pokemon/huntail'><PokeButton></PokeButton></Link>
                     </div>
                 </div>
             </div>

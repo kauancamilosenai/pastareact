@@ -1,16 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter } from "react-router-dom";
 import { Link } from 'react-router-dom';
+import { useParams } from "react-router-dom";
 import axios from  'axios';
 import './pokemon.css';
-import UseEffectPokeApi from '../../hooks/useFetchPokeApi';
+import useEffectPokeApi from '../../hooks/useFetchPokeApi';
 
 function Pokemon() {
+  const {id} = useParams();
 
-  const {pokemons, loading, error} = UseEffectPokeApi("charmander"); 
-  const [setPokemons] = useState({}); 
-  const [setLoading] = useState(true); 
-  const [setError] = useState(false); 
+  const {pokemons, loading, error} = useEffectPokeApi(id);
+  const [setPokemons] = useState({});
+  const [setLoading] = useState(true);
+  const [setError] = useState(false);
+  const paginaAtual = ['charmander']
 
  if (loading) return <div className='loader'>
     Carregando...
@@ -32,13 +35,13 @@ function Pokemon() {
           
         </div>
       </div>
-      <Link to="/pokemon">
+      <Link to={`/pokemon${paginaAtual-1}`}>
         <button className="buttonBack"></button>
       </Link>
       <Link to="/">
         <button className="buttonHome"></button>
       </Link>
-      <Link to="/pokemon2">
+      <Link to={`/pokemon${paginaAtual+1}`}>
         <button className="buttonForward"></button>
       </Link>
     </div>
