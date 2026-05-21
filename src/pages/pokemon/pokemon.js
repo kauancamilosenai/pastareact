@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import axios from  'axios';
 import './pokemon.css';
 import useEffectPokeApi from '../../hooks/useFetchPokeApi';
+import { Position } from 'postcss';
 
 function Pokemon() {
   const {id} = useParams();
@@ -12,8 +13,39 @@ function Pokemon() {
   const {pokemons, loading, error} = useEffectPokeApi(id);
   const [setPokemons] = useState({});
   const [setLoading] = useState(true);
-  const [setError] = useState(false);
-  const paginaAtual = ['charmander']
+  const [setError] = useState(false); 
+
+  // a partir daqui até a linha ! tentei fazer meus botões voltarem a funcionar 
+  // quase acabando a lógica, falta aplicar dentro dos botões e corrigir o console.log(FINAL) que está dando erro em .pokemon
+
+  const paginaAtual = [
+    {position: 0 , pokemon: 'charmander'},
+    {position: 1 , pokemon: 'chimchar'},
+    {position: 2 , pokemon: 'abra'},
+    {position: 3 , pokemon: 'terrakion'},
+    {position: 4 , pokemon: 'seedot'},
+    {position: 5 , pokemon: 'huntail'}
+  ]
+  const pokemonAtual = paginaAtual.find(poke => poke.pokemon === id).pokemon;
+  const positionAtual = paginaAtual.find(poke => poke.pokemon === id).position;
+  let forward = positionAtual
+  let backward = positionAtual
+  console.log(`pokemon atual : ${pokemonAtual}`)
+  console.log(`position atual : ${positionAtual}`) 
+  //console.log(`FINAL: ${paginaAtual[positionAtual]?.id}`)
+
+  if(positionAtual == 0){
+    forward++
+    console.log("zero")
+  } else { 
+    console.log('+1')
+    backward = backward-1
+    forward = forward+1
+  }
+  console.log(backward)
+  console.log(forward)
+
+  //queria tentar criar uma logica que levasse o usuario ao proximo pokemon mas ainda não consegui produzi-la
 
  if (loading) return <div className='loader'>
     Carregando...
@@ -35,13 +67,13 @@ function Pokemon() {
           
         </div>
       </div>
-      <Link to={`/pokemon${paginaAtual-1}`}>
+        <Link to={`/pokemon/${id}`}>
         <button className="buttonBack"></button>
       </Link>
       <Link to="/">
         <button className="buttonHome"></button>
       </Link>
-      <Link to={`/pokemon${paginaAtual+1}`}>
+      <Link to={`/pokemon/${id}`}>
         <button className="buttonForward"></button>
       </Link>
     </div>
