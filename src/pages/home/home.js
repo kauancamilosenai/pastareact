@@ -20,9 +20,9 @@ function Treinador(){
                     <div> {/* parte dos links adicionam rota de navegação sendo cada um a carta de um pokemon diferente */}
                           {/* já o pokeButton é uma função que foi criada em 'componentes'  */}
                         <Link to='./pokemon/charmander'><PokeButton></PokeButton></Link> 
-                        <Link to='./pokemon/chimchar'><PokeButton></PokeButton></Link>
+                        <Link to='./pokemon/chimchar'><PokeButton></PokeButton></Link> {/* usando o botão apenas pela função sem ter que reescrever as mesmas linhas de código pra todos */} 
                         <Link to='./pokemon/abra'><PokeButton></PokeButton></Link>
-                        <Link to='./pokemon/terrakion'><PokeButton></PokeButton></Link>
+                        <Link to='./pokemon/lapras'><PokeButton></PokeButton></Link>
                         <Link to='./pokemon/seedot'><PokeButton></PokeButton></Link>
                         <Link to='./pokemon/huntail'><PokeButton></PokeButton></Link>
                     </div>

@@ -8,10 +8,10 @@ function useFetchPokeapi(pokemon) {
   const [error, setError] = useState(false);
 
 
-  useEffect(() => {
+  useEffect(() => { // é o responsavel por pegar as api dos pokemons, transformando em id na pagina dos pokemons
     const getData = async () => {
       try {
-        const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemon}`,
+        const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemon}`, //nessa linha o código esta tentando buscar a api do pokemon escolhido
           {
             headers: {
               'Cache-Control': 'no-cache',
@@ -24,7 +24,7 @@ function useFetchPokeapi(pokemon) {
         console.log('Success:', res.data);
         setLoading(false);
       }
-      catch (err) {
+      catch (err) { // caso não consiga pegar a api do pokemon o erro entra
         console.error("Erro ao carregar API", err);
         setLoading(false)
         setError(true)

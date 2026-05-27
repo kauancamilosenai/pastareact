@@ -40,24 +40,25 @@
 .pokemon{
   text-align: center;
   color: white;
+  padding: 100px;
 }
 
 .pokemon-card{
   color: black;
   padding: 100px;
   text-align: center;
-  box-align: center;
-  padding: 10px;
+  font-size: 20px;
+  padding: 25px;
   height: max-content ;
   width: 170px;
-  margin: auto auto;
+  margin: 0 auto;
   background: radial-gradient(white , rgb(100, 100, 100));
   border-radius: 10px;
 }
 
 .pokemon image{
-  height: 100px;
-  width: 100px;
+  height: 10000px;
+  width: 10000px;
 }
 
 .buttonHome{

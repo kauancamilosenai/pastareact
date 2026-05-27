@@ -18,11 +18,11 @@ function Pokemon() {
   // a partir daqui até a linha ! tentei fazer meus botões voltarem a funcionar 
   // quase acabando a lógica, falta aplicar dentro dos botões e corrigir o console.log(FINAL) que está dando erro em .pokemon
 
-  const paginaAtual = [
+  const paginaAtual = [ // fiz uma lista para manter os botões dentro da página funcionando
     {position: 0 , pokemon: 'charmander'},
     {position: 1 , pokemon: 'chimchar'},
     {position: 2 , pokemon: 'abra'},
-    {position: 3 , pokemon: 'terrakion'},
+    {position: 3 , pokemon: 'lapras'},
     {position: 4 , pokemon: 'seedot'},
     {position: 5 , pokemon: 'huntail'}
   ]
@@ -47,7 +47,6 @@ function Pokemon() {
   }
   console.log(`backward ${backward}`)
   console.log(`forward ${forward}`)
-  //queria tentar criar uma logica que levasse o usuario ao proximo pokemon mas ainda não consegui produzi-la
 
  if (loading) return <div className='loader'>
     Carregando...
