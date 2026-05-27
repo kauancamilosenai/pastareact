@@ -32,18 +32,21 @@ function Pokemon() {
   let backward = positionAtual
   console.log(`pokemon atual : ${pokemonAtual}`)
   console.log(`position atual : ${positionAtual}`) 
-  console.log(`FINAL: ${paginaAtual[positionAtual].id}`)
+  console.log(`FINAL: ${paginaAtual[positionAtual].pokemon}`)
 
   if(positionAtual == 0){
     forward++
     console.log("zero")
+  } else if (positionAtual == paginaAtual.length-1) {
+    backward--
+    console.log('pessoa feliz')
   } else { 
-    console.log('+1')
-    backward = backward-1
-    forward = forward+1
+    console.log('um')
+    backward--
+    forward++
   }
-  console.log(`backward`)
-  console.log(`forward`)
+  console.log(`backward ${backward}`)
+  console.log(`forward ${forward}`)
   //queria tentar criar uma logica que levasse o usuario ao proximo pokemon mas ainda não consegui produzi-la
 
  if (loading) return <div className='loader'>
@@ -66,13 +69,13 @@ function Pokemon() {
           
         </div>
       </div>
-        <Link to={`/pokemon/${id}`}>
+        <Link to={`/pokemon/${paginaAtual[backward].pokemon}`}>
         <button className="buttonBack"></button>
       </Link>
       <Link to="/">
         <button className="buttonHome"></button>
       </Link>
-      <Link to={`/pokemon/${id}`}>
+      <Link to={`/pokemon/${paginaAtual[forward].pokemon}`}>
         <button className="buttonForward"></button>
       </Link>
     </div>
