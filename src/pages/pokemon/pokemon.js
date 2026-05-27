@@ -26,6 +26,7 @@ function Pokemon() {
     {position: 4 , pokemon: 'seedot'},
     {position: 5 , pokemon: 'huntail'}
   ]
+  
   const pokemonAtual = paginaAtual.find(poke => poke.pokemon === id).pokemon;
   const positionAtual = paginaAtual.find(poke => poke.pokemon === id).position;
   let forward = positionAtual
@@ -60,10 +61,10 @@ function Pokemon() {
     <div className="pokemon">
       <h1>POKEMON CARD</h1>
       <div className="pokemon-container">
-        <div className="pokemon-card">
+        <div className={`pokemon-card ${pokemons.types[0].type.name}`}>
           <h3>{pokemons.name}</h3>
           <h4>{pokemons.types[0].type.name}</h4>
-          <img src={pokemons.sprites.front_shiny} alt={pokemons.name}/>
+          <img src={pokemons.sprites.other['official-artwork'].front_default} alt={pokemons.name}/>
           <h3>{pokemons.stats[0].stat.name+' '+pokemons.stats[0].base_stat+' '+pokemons.stats[1].stat.name+' '+pokemons.stats[0].base_stat}</h3>
           
         </div>
