@@ -1,31 +1,34 @@
 .titulo{
-    color: white;
+    color: black;
     text-align: center;
     font-size: 15px;
 }
 
 .info{
     margin: 0 auto;
-    color: black;
+    color: rgb(236, 236, 236);
     padding: 10px;
     text-align: center;
     line-height: 20px;
     box-align: center;
     height: auto ;
-    width: 300px;
+    width: 250px;
     box-align: center;
-    background: radial-gradient(white , rgb(100, 100, 100));
+    background: radial-gradient(rgb(218, 218, 218) , rgb(100, 100, 100));
     border-radius: 10px;
+    text-shadow: 0px 0px 7px  black;
+    box-shadow: 0px 0px 15px black;
+
 }
 
 .info img{
     height: 150px;
-    width: 300px;
+    width: 250px;
     border-radius: 5%;
 }
 
 body{
-    background-image: url("https://i.pinimg.com/736x/94/9a/f6/949af6e6e764976322ea0ca44fb7ad54.jpg");
+    background-image: url("../../../public/pokeground.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

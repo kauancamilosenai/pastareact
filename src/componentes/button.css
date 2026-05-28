@@ -1,19 +1,19 @@
 .botao{
     cursor: pointer;
-    margin: 10px 5px;
+    margin: 10px 15px;
     background-image: url("../assets/pokeball.png");
     background-color: transparent;
     border: none;
     background: cover;
     background-position: center;    
-    height: 70px ;
-    width: 70px;
+    height: 50px ;
+    width: 50px;
     background-size: cover;
     transition: background-image 0.3s ease-in-out;
 }
 
 .botao:hover{
     background-image: url("../assets/greenball.png");
-    height: 70px ;
-    width: 70px;
+    height: 50px ;
+    width: 50px;
 }
