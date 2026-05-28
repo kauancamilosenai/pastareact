@@ -1,0 +1,19 @@
+.fight{
+    cursor: pointer;
+    margin: 3px 3px;
+    background-image: url("../../public/fight-button-heart.png");
+    background-color: transparent;
+    border: none;
+    background: cover;
+    background-position: center;
+    height: 60px ;
+    width: 130px;
+    background-size: cover;
+    transition: background-image 0.3s ease-in-out;
+}
+
+.fight:hover{
+    background-image: url("../../public/tramontina.webp");
+    height: 60px ;
+    width: 130px;
+}

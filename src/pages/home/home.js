@@ -4,14 +4,15 @@ import {Route, BrowserRouter, Routes} from "react-router-dom";
 import { Link } from 'react-router-dom';
 import './home.css'
 import PokeButton from '../../componentes/buttons.js'
+import FightButton from '../../componentes/fight.js'
 
 function Treinador(){
     return( //essa parte é html, então de certa forma foi tranquila de fazer
-        <div className="titulo"> 
-        <h1>Treinador</h1> {/* essa parte é a criação da base da carta pokemon */ }
+        <div className="titulo">
+        <h1>Treinador(es)</h1> {/* essa parte é a criação da base da carta pokemon */ }
             <div className="imagem">
                 <div className="info">
-                <img src="https://cdn.meutimao.com.br/_upload/forum/2024/02/19/cassio_calca_quadrada_qq.jpg" alt="cassio bobe esponja"></img>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReY_8ExI1janmzeVEFL0Fm8f9hEHH0QVPH2Q&s" alt="cassio bobe esponja"></img>
                 <h2>Kauan</h2>
                 <h2>9999+ anos</h2>
                 <h2>Cassio</h2>
@@ -25,6 +26,7 @@ function Treinador(){
                         <Link to='./pokemon/lapras'><PokeButton></PokeButton></Link>
                         <Link to='./pokemon/seedot'><PokeButton></PokeButton></Link>
                         <Link to='./pokemon/huntail'><PokeButton></PokeButton></Link>
+                        <Link><FightButton></FightButton></Link>
                     </div>
                 </div> 
             </div>
