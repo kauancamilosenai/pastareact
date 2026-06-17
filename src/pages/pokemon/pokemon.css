@@ -136,3 +136,7 @@
   width: 50px ;
   background-size: cover;
 }
+
+.evolution1{
+  background-image: url('../../../public/pokemonbase.png');
+}

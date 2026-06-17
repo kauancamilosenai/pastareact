@@ -6,6 +6,7 @@ import axios from  'axios';
 import './pokemon.css';
 import useEffectPokeApi from '../../hooks/useFetchPokeApi';
 import { Position } from 'postcss';
+import EvolutionPokeButton from '../../componentes/evolutionButton.js'
 
 function Pokemon() {
   const {id} = useParams();
@@ -59,15 +60,6 @@ function Pokemon() {
     ocorreu um erro inesperado
     </div>;
 
-    //setPokemonInGame(
-    //  {
-    //    "nome":pokemons.name,
-    //    "vida":pokemons.stats[0].base_stat,
-    //    "ataque":pokemons.stats[1].base_stat,
-    //    "tipo":pokemons.types[0]
-    //  }
-    //)
-
   return(
     <div className="pokemon">
       <h1>POKEMON CARD</h1>
@@ -79,6 +71,8 @@ function Pokemon() {
           <h3>{'VIDA:' + ' ' +myPokemon.vida*10+ ' ' + 'ATK:' + '' + myPokemon.ataque}</h3>
         </div>
       </div>
+        <EvolutionPokeButton></EvolutionPokeButton>
+      <div>
         <Link to={`/pokemon/${paginaAtual[backward].pokemon}`}>
         <button className="buttonBack"></button>
       </Link>
@@ -88,6 +82,7 @@ function Pokemon() {
       <Link to={`/pokemon/${paginaAtual[forward].pokemon}`}>
         <button className="buttonForward"></button>
       </Link>
+      </div>
     </div>
   );
 }

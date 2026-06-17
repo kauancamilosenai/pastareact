@@ -109,8 +109,8 @@ useEffect(() => {
         vida: pokemons.stats[0].base_stat,
         ataque: pokemons.stats[1].base_stat,
         tipo: myType,
-        evolucao: [evolution.chain.evolves_to[0].species.name],
         imagem: pokemons.sprites.other['official-artwork'].front_default,
+        evolucao: [evolution.chain.evolves_to[0].species.name],
       });
     } catch (err) {
       console.error(err);
@@ -122,20 +122,5 @@ useEffect(() => {
 
   return { myPokemon, loading, error }
 }
-
-
-//QUINTO
-//eEffect(() => {
-//const setMyType = async () => {
-//  try {
-//    if(pokemons.tipo == 'normal' || pokemons.tipo == 'fire'){
-//      oque que muda aqui zé = 'Corpo'
-//    } if else (pokemons.tipo == 'Psychic')
-//  } catch (err) {
-//    console.error(err);
-//  }
-//};
-//setMyType();
-//    }, [ oque que vai esperar? ]);
 
 export default useFetchPokeapi;
