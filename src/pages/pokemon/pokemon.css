@@ -46,33 +46,52 @@
 .pokemon-card{
   color: rgb(240, 240, 240);
   text-shadow: 0 0 5px black;
+  text-transform: capitalize;
   padding: 10px;
   text-align: center;
-  font-size: 17px;
+  font-size: 15px;
   height: max-content ;
-  width: 170px;
+  width: 180px;
   margin: 0 auto;
   background: radial-gradient(white , rgb(100, 100, 100));
   border-radius: 10px;
   box-shadow: 0 0 15px black;
 }
 
-.pokemon-card.fire{
-  background: radial-gradient( rgb(241, 238, 30) , rgb(255, 185, 34));
+/* temos aqui um tipo de carta */
+.pokemon-card.Corpo{
+  background: radial-gradient(  rgba() , rgba());
 }
 
-.pokemon-card.psychic{
+.pokemon-card.mente{
   background: radial-gradient(  rgb(82, 0, 177) , rgb(157, 51, 255));
 }
 
-.pokemon-card.water{
-  background: radial-gradient(  rgba(0, 255, 255, 0.945) , rgba(0, 153, 255, 0.911));
+.pokemon-card.Sombra{
+  background: radial-gradient(  rgb() , rgb());
 }
 
-.pokemon-card.grass{
+.pokemon-card.natureza{
   background: radial-gradient(  rgb(90, 156, 36) , rgb(167, 255, 2));
 }
 
+.pokemon-card.terra{
+  background: radial-gradient(  rgb() , rgb());
+}
+
+.pokemon-card.agua{
+  background: radial-gradient(  rgba(0, 255, 255, 0.945) , rgba(0, 153, 255, 0.911));
+}
+
+.pokemon-card.fogo{
+  background: radial-gradient( rgb(241, 238, 30) , rgb(255, 185, 34));
+}
+
+.pokemon-card.tempestade{
+  background: radial-gradient( rgb() , rgb());
+}
+
+/**/
 .pokemon-container img{
   height: 100px;
   width: 100px;

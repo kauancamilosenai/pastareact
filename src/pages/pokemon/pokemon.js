@@ -9,8 +9,10 @@ import { Position } from 'postcss';
 
 function Pokemon() {
   const {id} = useParams();
+  //const especie = axios.get(pokemons)
+  //const {pokemonInGame, setPokemonInGame} = useState({})
 
-  const {pokemons, loading, error} = useEffectPokeApi(id);
+  const {myPokemon, loading, error} = useEffectPokeApi(id);
   const [setPokemons] = useState({});
   const [setLoading] = useState(true);
   const [setError] = useState(false); 
@@ -35,10 +37,10 @@ function Pokemon() {
   console.log(`position atual : ${positionAtual}`) 
   console.log(`FINAL: ${paginaAtual[positionAtual].pokemon}`)
 
-  if(positionAtual == 0){
+  if(positionAtual === 0){
     forward++
     console.log("zero")
-  } else if (positionAtual == paginaAtual.length-1) {
+  } else if (positionAtual === paginaAtual.length-1) {
     backward--
     console.log('pessoa feliz')
   } else { 
@@ -57,16 +59,24 @@ function Pokemon() {
     ocorreu um erro inesperado
     </div>;
 
+    //setPokemonInGame(
+    //  {
+    //    "nome":pokemons.name,
+    //    "vida":pokemons.stats[0].base_stat,
+    //    "ataque":pokemons.stats[1].base_stat,
+    //    "tipo":pokemons.types[0]
+    //  }
+    //)
+
   return(
     <div className="pokemon">
       <h1>POKEMON CARD</h1>
       <div className="pokemon-container">
-        <div className={`pokemon-card ${pokemons.types[0].type.name}`}>
-          <h3>{pokemons.name}</h3>
-          <h4>{pokemons.types[0].type.name}</h4>
-          <img src={pokemons.sprites.other['official-artwork'].front_default} alt={pokemons.name}/>
-          <h3>{pokemons.stats[0].stat.name+' '+pokemons.stats[0].base_stat+' '+pokemons.stats[1].stat.name+' '+pokemons.stats[0].base_stat}</h3>
-          
+        <div className={`pokemon-card ${myPokemon.tipo}`}>
+          <h3>{myPokemon.nome}</h3>
+          <h4>{myPokemon.tipo}</h4>
+          <img src={myPokemon.imagem} alt={myPokemon.name}/>
+          <h3>{'VIDA:' + ' ' +myPokemon.vida*10+ ' ' + 'ATK:' + '' + myPokemon.ataque}</h3>
         </div>
       </div>
         <Link to={`/pokemon/${paginaAtual[backward].pokemon}`}>
