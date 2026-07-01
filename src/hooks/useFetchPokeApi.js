@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { async } from 'q';
+import { objectProperty } from '@babel/types';
+import { getPokemonDB, savePokemonDB } from '../utils/pokemondb';
 
 function useFetchPokeapi(pokeid) {
   console.log('iniciando construção da pagina')
@@ -57,6 +59,16 @@ getMyType();
         setPokemons(res.data);
         console.log('Success:', res.data);
         setLoading(false);
+
+        const cachep = await getPokemonDB(pokeid);
+
+        if(!cachep){
+          await getData();
+        } 
+        else{
+          setMyPokemon(cachep)
+          return setLoading(false);
+        }
       }
       catch (err) { // caso não consiga pegar a api do pokemon o erro entra
         console.error("Erro ao carregar API", err);
@@ -67,8 +79,6 @@ getMyType();
     getData();
   }, [pokeid]);
 
-
-//SEGUNDO
 useEffect(() => { // é o responsavel por pegar as api dos pokemons, transformando em id na pagina dos pokemons
   const getSpecies = async () => {
     try {
@@ -117,6 +127,7 @@ useEffect(() => {
     }
   };
   setPoke();
+  savePokemonDB(myPokemon);
       }, [evolution, pokemons, myType]);
 
 
