@@ -7,6 +7,8 @@ import './pokemon.css';
 import useEffectPokeApi from '../../hooks/useFetchPokeApi';
 import { Position } from 'postcss';
 import EvolutionPokeButton from '../../componentes/evolutionButton.js'
+import whatshulk from '../../assets/whatshulk.webp'
+
 
 function Pokemon() {
   const {id} = useParams();
@@ -53,11 +55,11 @@ function Pokemon() {
   console.log(`forward ${forward}`)
 
  if (loading) return <div className='loader'>
-    Carregando...
+    Carregando...<img src={whatshulk}/>
     </div>;
  
  if (error) return <div className='error'>
-    ocorreu um erro inesperado
+    ocorreu um erro inesperado. <img src={whatshulk}/>
     </div>;
 
   return(

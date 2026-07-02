@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { async } from 'q';
-import { objectProperty } from '@babel/types';
 import { getPokemonDB, savePokemonDB } from '../utils/pokemondb';
 
 function useFetchPokeapi(pokeid) {
@@ -18,28 +16,28 @@ function useFetchPokeapi(pokeid) {
 useEffect(() => { //esse useEffect existe para colocarmos tipos personalizados dos pokemons de acordo com a API, sendo assim, será possível fazer nosso proprio agrupamento de pokemons
 const getMyType = async () => {
   try {
-    if(pokemons.types[0].type.name == 'normal' || pokemons.types[0].type.name == 'fighter'){
+    if(pokemons.types[0].type.name === 'normal' || pokemons.types[0].type.name === 'fighter'){
       setMyType('corpo');
 
-    } else if (pokemons.types[0].type.name == 'psychic' || pokemons.types[0].type.name == 'fairy'){
+    } else if (pokemons.types[0].type.name === 'psychic' || pokemons.types[0].type.name === 'fairy'){
       setMyType('mente');
 
-    } else if (pokemons.types[0].type.name == 'ghost' || pokemons.types[0].type.name == 'dark'){
+    } else if (pokemons.types[0].type.name === 'ghost' || pokemons.types[0].type.name === 'dark'){
       setMyType('sombra');
 
-    } else if (pokemons.types[0].type.name == 'grass' || pokemons.types[0].type.name == 'bug' || pokemons.types[0].type.name == 'poison'){
+    } else if (pokemons.types[0].type.name === 'grass' || pokemons.types[0].type.name === 'bug' || pokemons.types[0].type.name === 'poison'){
       setMyType('natureza');
 
-    } else if (pokemons.types[0].type.name == 'rock' || pokemons.types[0].type.name == 'ground' || pokemons.types[0].type.name == 'steel'){
+    } else if (pokemons.types[0].type.name === 'rock' || pokemons.types[0].type.name === 'ground' || pokemons.types[0].type.name === 'steel'){
       setMyType('terra');
 
-    } else if (pokemons.types[0].type.name == 'water' || pokemons.types[0].type.name == 'ice'){
+    } else if (pokemons.types[0].type.name === 'water' || pokemons.types[0].type.name === 'ice'){
       setMyType('agua');
 
-    } else if (pokemons.types[0].type.name == 'fire'){
+    } else if (pokemons.types[0].type.name === 'fire'){
       setMyType('fogo');
       
-    } else if (pokemons.types[0].type.name == 'electric' || pokemons.types[0].type.name == 'flying' || pokemons.types[0].type.name == 'dragon'){
+    } else if (pokemons.types[0].type.name === 'electric' || pokemons.types[0].type.name === 'flying' || pokemons.types[0].type.name === 'dragon'){
       setMyType('tempestade');
     }
   } catch (err) {
@@ -114,14 +112,23 @@ useEffect(() => { // é o responsavel por pegar as api dos pokemons, transforman
 useEffect(() => {
   const setPoke = async () => {
     try {
-      setMyPokemon({
+      if(!myPokemon){
+        
+      }
+      else { setMyPokemon({
         nome: pokemons.name,
         vida: pokemons.stats[0].base_stat,
         ataque: pokemons.stats[1].base_stat,
         tipo: myType,
         imagem: pokemons.sprites.other['official-artwork'].front_default,
-        evolucao: [evolution.chain.evolves_to[0].species.name],
+        evolucao: [
+          evolution.chain.evolves_to[0].species.name
+        ],
       });
+    }
+      console.log(myPokemon);
+      setLoading(false);
+      await savePokemonDB(myPokemon);
     } catch (err) {
       console.error(err);
     }
@@ -133,5 +140,4 @@ useEffect(() => {
 
   return { myPokemon, loading, error }
 }
-
 export default useFetchPokeapi;

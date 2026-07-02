@@ -3,7 +3,6 @@ button{
     height: 55px;
     margin: 15px 7px 0 7px;
     cursor: pointer;
-    background-image: url('../../public/pokemonbase.png');
 }
 
 .evolutionBotao1{
@@ -12,12 +11,12 @@ button{
     background-size: cover;
 }
 .evolutionBotao2{
-    background-image: url('../../public/pokemonbase.png');
+    background-image: url('../../public/pokemonum.png');
     background: cover;
     background-size: cover;
 }
 .evolutionBotao3{
-    background-image: url('../../public/pokemonbase.png');
+    background-image: url('../../public/pokemondois.png');
     background: cover;
     background-size: cover;
 }
