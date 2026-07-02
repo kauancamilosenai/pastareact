@@ -10,7 +10,7 @@ export const getPokemonDB = async (nome) => {
 };
 
 // aqui repassamos as informações que acabamos de coletar para o nosso data bank
-export const savePokemonDB = async (pokemon) => {
+     export const savePokemonDB = async (pokemon) => {
     const db = await dbPromise;
     return db.put("pokemons", pokemon);
 };

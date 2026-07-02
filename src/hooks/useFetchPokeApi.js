@@ -58,24 +58,28 @@ getMyType();
         console.log('Success:', res.data);
         setLoading(false);
 
-        const cachep = await getPokemonDB(pokeid);
-
-        if(!cachep){
-          await getData();
-        } 
-        else{
-          setMyPokemon(cachep)
-          return setLoading(false);
-        }
+        
       }
       catch (err) { // caso não consiga pegar a api do pokemon o erro entra
         console.error("Erro ao carregar API", err);
         setLoading(false)
         setError(true)
       }
+      const cachep = await getPokemonDB(pokeid);
+        if(!cachep){
+          await getData();
+        } 
+        else{
+          setMyPokemon(cachep)
+          setLoading(false);
+          return { myPokemon, loading, error }
+        }
+        getData();
     };
-    getData();
+    await getData();
   }, [pokeid]);
+
+
 
 useEffect(() => { // é o responsavel por pegar as api dos pokemons, transformando em id na pagina dos pokemons
   const getSpecies = async () => {
