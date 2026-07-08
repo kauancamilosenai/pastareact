@@ -1,5 +1,4 @@
 import { dbPromise } from "./db";
-import { async } from "q";
 
 // aqui é onde alimentamos a tabela dos pokemons
 

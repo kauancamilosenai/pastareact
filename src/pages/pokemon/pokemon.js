@@ -23,36 +23,36 @@ function Pokemon() {
   // a partir daqui até a linha ! tentei fazer meus botões voltarem a funcionar 
   // quase acabando a lógica, falta aplicar dentro dos botões e corrigir o console.log(FINAL) que está dando erro em .pokemon
 
-  const paginaAtual = [ // fiz uma lista para manter os botões dentro da página funcionando
-    {position: 0 , pokemon: 'charmander'},
-    {position: 1 , pokemon: 'chimchar'},
-    {position: 2 , pokemon: 'abra'},
-    {position: 3 , pokemon: 'lapras'},
-    {position: 4 , pokemon: 'seedot'},
-    {position: 5 , pokemon: 'huntail'}
-  ]
-  
-  const pokemonAtual = paginaAtual.find(poke => poke.pokemon === id).pokemon;
-  const positionAtual = paginaAtual.find(poke => poke.pokemon === id).position;
-  let forward = positionAtual
-  let backward = positionAtual
-  console.log(`pokemon atual : ${pokemonAtual}`)
-  console.log(`position atual : ${positionAtual}`) 
-  console.log(`FINAL: ${paginaAtual[positionAtual].pokemon}`)
+  //const paginaAtual = [ // fiz uma lista para manter os botões //dentro da página funcionando
+  //  {position: 0 , pokemon: 'charmander'},
+  //  {position: 1 , pokemon: 'chimchar'},
+  //  {position: 2 , pokemon: 'abra'},
+  //  {position: 3 , pokemon: 'lapras'},
+  //  {position: 4 , pokemon: 'seedot'},
+  //  {position: 5 , pokemon: 'huntail'}
+  //]
+  //
+  //const pokemonAtual = paginaAtual.find(poke => poke.pokemon === id)//.pokemon;
+  //const positionAtual = paginaAtual.find(poke => poke.pokemon === id)//.position;
+  //let forward = positionAtual
+  //let backward = positionAtual
+  //console.log(`pokemon atual : ${pokemonAtual}`)
+  //console.log(`position atual : ${positionAtual}`) 
+  //console.log(`FINAL: ${paginaAtual[positionAtual].pokemon}`)
 
-  if(positionAtual === 0){
-    forward++
-    console.log("zero")
-  } else if (positionAtual === paginaAtual.length-1) {
-    backward--
-    console.log('pessoa feliz')
-  } else { 
-    console.log('um')
-    backward--
-    forward++
-  }
-  console.log(`backward ${backward}`)
-  console.log(`forward ${forward}`)
+  //if(positionAtual === 0){
+  //  forward++
+  //  console.log("zero")
+  //} else if (positionAtual === paginaAtual.length-1) {
+  //  backward--
+  //  console.log('pessoa feliz')
+  //} else { 
+  //  console.log('um')
+  //  backward--
+  //  forward++
+  //}
+  //console.log(`backward ${backward}`)
+  //console.log(`forward ${forward}`)
 
  if (loading) return <div className='loader'>
     Carregando...<img src={whatshulk}/>
@@ -75,13 +75,13 @@ function Pokemon() {
       </div>
         <EvolutionPokeButton></EvolutionPokeButton>
       <div>
-        <Link to={`/pokemon/${paginaAtual[backward].pokemon}`}>
+        <Link to={`/pokemon/${"s"}`}>
         <button className="buttonBack"></button>
       </Link>
       <Link to="/">
         <button className="buttonHome"></button>
       </Link>
-      <Link to={`/pokemon/${paginaAtual[forward].pokemon}`}>
+      <Link to={`/pokemon/${"s"}`}>
         <button className="buttonForward"></button>
       </Link>
       </div>

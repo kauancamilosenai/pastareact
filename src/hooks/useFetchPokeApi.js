@@ -12,9 +12,10 @@ function useFetchPokeapi(pokeid) {
   const [myPokemon, setMyPokemon] = useState({});
   const [myType, setMyType] = useState('');
 
-  //meu codigo funciona sem essa parte (seta para baixo)
+  
 useEffect(() => { //esse useEffect existe para colocarmos tipos personalizados dos pokemons de acordo com a API, sendo assim, será possível fazer nosso proprio agrupamento de pokemons
 const getMyType = async () => {
+  
   try {
     if(pokemons.types[0].type.name === 'normal' || pokemons.types[0].type.name === 'fighter'){
       setMyType('corpo');
@@ -56,9 +57,7 @@ getMyType();
         const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokeid}`); //nessa linha o código esta tentando buscar a api do pokemon escolhido
         setPokemons(res.data);
         console.log('Success:', res.data);
-        setLoading(false);
-
-        
+        setLoading(false);        
       }
       catch (err) { // caso não consiga pegar a api do pokemon o erro entra
         console.error("Erro ao carregar API", err);
@@ -76,7 +75,6 @@ getMyType();
         }
         getData();
     };
-    await getData();
   }, [pokeid]);
 
 
@@ -84,7 +82,7 @@ getMyType();
 useEffect(() => { // é o responsavel por pegar as api dos pokemons, transformando em id na pagina dos pokemons
   const getSpecies = async () => {
     try {
-      const res = await axios.get(pokemons.species.url, {}); //nessa linha o código esta tentando buscar a api do pokemon escolhido
+      const res = await axios.get(pokemons.species.url,  {}); //nessa linha o código esta tentando buscar a api do pokemon escolhido
       setSpecies(res.data);
       console.log('Success:', res.data);
     }
@@ -116,29 +114,24 @@ useEffect(() => { // é o responsavel por pegar as api dos pokemons, transforman
 useEffect(() => {
   const setPoke = async () => {
     try {
-      if(!myPokemon){
-        
-      }
-      else { setMyPokemon({
+      setMyPokemon({
         nome: pokemons.name,
         vida: pokemons.stats[0].base_stat,
         ataque: pokemons.stats[1].base_stat,
         tipo: myType,
         imagem: pokemons.sprites.other['official-artwork'].front_default,
-        evolucao: [
-          evolution.chain.evolves_to[0].species.name
-        ],
+        evolucao: evolution.chain.evolves_to[0].species.name
       });
-    }
+    
       console.log(myPokemon);
-      setLoading(false);
       await savePokemonDB(myPokemon);
+      setLoading(false);
     } catch (err) {
       console.error(err);
     }
   };
   setPoke();
-  savePokemonDB(myPokemon);
+  
       }, [evolution, pokemons, myType]);
 
 
