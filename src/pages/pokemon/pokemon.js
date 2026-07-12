@@ -21,7 +21,7 @@ function Pokemon() {
   const [setError] = useState(false); 
 
   // a partir daqui até a linha ! tentei fazer meus botões voltarem a funcionar 
-  // quase acabando a lógica, falta aplicar dentro dos botões e corrigir o console.log(FINAL) que está dando erro em .pokemon
+  // COMENTEI PORQUE TA DANDO ERRO E NÃO CONSEGUI FINALIZAR A TEMPO, infelizmente não vai ter botão de ir pra frente e pra trás. :(
 
   //const paginaAtual = [ // fiz uma lista para manter os botões //dentro da página funcionando
   //  {position: 0 , pokemon: 'charmander'},
@@ -50,7 +50,7 @@ function Pokemon() {
   //  console.log('um')
   //  backward--
   //  forward++
-  //}
+  //} 
   //console.log(`backward ${backward}`)
   //console.log(`forward ${forward}`)
 
@@ -75,15 +75,15 @@ function Pokemon() {
       </div>
         <EvolutionPokeButton></EvolutionPokeButton>
       <div>
-        <Link to={`/pokemon/${"s"}`}>
+      {/* <Link to={`/pokemon/${"s"}`}>
         <button className="buttonBack"></button>
-      </Link>
+      </Link> */}
       <Link to="/">
         <button className="buttonHome"></button>
       </Link>
-      <Link to={`/pokemon/${"s"}`}>
+      {/* <Link to={`/pokemon/${"s"}`}>
         <button className="buttonForward"></button>
-      </Link>
+      </Link> */}
       </div>
     </div>
   );

@@ -47,35 +47,31 @@ const getMyType = async () => {
 };
 getMyType();
     }, [pokemons]);
-// meu codigo funcionar antes entre esse codigo (seta para cima)
 
 
 //PRIMEIRO
-  useEffect(() => { // é o responsavel por pegar as api dos pokemons, transformando em id na pagina dos pokemons
-    const getData = async () => {
-      try {
-        const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokeid}`); //nessa linha o código esta tentando buscar a api do pokemon escolhido
-        setPokemons(res.data);
-        console.log('Success:', res.data);
-        setLoading(false);        
-      }
-      catch (err) { // caso não consiga pegar a api do pokemon o erro entra
-        console.error("Erro ao carregar API", err);
-        setLoading(false)
-        setError(true)
-      }
+  useEffect(() => { // inverti a ordem da chamada da api e do banco de dados do navegador pois estava dando problema no meu código
+  const getData = async () => {
+    try {
       const cachep = await getPokemonDB(pokeid);
-        if(!cachep){
-          await getData();
-        } 
-        else{
-          setMyPokemon(cachep)
-          setLoading(false);
-          return { myPokemon, loading, error }
-        }
-        getData();
-    };
-  }, [pokeid]);
+      if (cachep) { // primeiro tentamos pegar o pokemon do banco de dados
+        setMyPokemon(cachep);
+        setLoading(false);
+        return;
+      }
+      // caso não encontre o pokemon, pegaremos ele da api
+      const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokeid}`);
+      setPokemons(res.data);
+      setLoading(false);
+    } catch (err) {
+      console.error("Erro ao carregar API", err);
+      setLoading(false);
+      setError(true);
+    }
+  };
+
+  getData(); // <- essa linha estava faltando
+}, [pokeid]);
 
 
 
@@ -120,7 +116,7 @@ useEffect(() => {
         ataque: pokemons.stats[1].base_stat,
         tipo: myType,
         imagem: pokemons.sprites.other['official-artwork'].front_default,
-        evolucao: evolution.chain.evolves_to[0].species.name
+        evolucao: evolution.chain?.evolves_to?.[0]?.species?.name || null 
       });
     
       console.log(myPokemon);
