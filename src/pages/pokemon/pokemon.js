@@ -77,7 +77,7 @@ function Pokemon() {
       <div>
       {/* <Link to={`/pokemon/${"s"}`}>
         <button className="buttonBack"></button>
-      </Link> */}
+       </Link> */}
       <Link to="/">
         <button className="buttonHome"></button>
       </Link>

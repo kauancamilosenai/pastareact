@@ -98,11 +98,10 @@ useEffect(() => { // é o responsavel por pegar as api dos pokemons, transforman
 useEffect(() => { // é o responsavel por pegar as api dos pokemons, transformando em id na pagina dos pokemons
   const getEvolutions = async () => {
     try {
-      if ((especies.evolution_chain.url, {}) < 2){
       const res = await axios.get(especies.evolution_chain.url, {}); //nessa linha o código esta tentando buscar a api do pokemon escolhido
       setEvolutions(res.data);
       console.log('Success:', res.data);
-      }
+      
     }
     catch (err) { // caso não consiga pegar a api do pokemon o erro entra
       console.error("Erro ao carregar API", err);
