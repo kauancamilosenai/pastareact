@@ -144,6 +144,6 @@ useEffect (() => {
       }, [evolution, pokemons, myType]);
 
 
-  return { myPokemon, loading, error }
+  return { myPokemon : myPokemon || {}, loading, error }
 }
 export default useFetchPokeapi; // fim

@@ -24,7 +24,7 @@ function Treinador(){
                         <Link to='./pokemon/chimchar'><PokeButton></PokeButton></Link> {/* usando o botão apenas pela função sem ter que reescrever as mesmas linhas de código pra todos */} 
                         <Link to='./pokemon/abra'><PokeButton></PokeButton></Link>
                         <Link to='./pokemon/lapras'><PokeButton></PokeButton></Link>
-                        <Link to='./pokemon/seedot'><PokeButton></PokeButton></Link>
+                        <Link to='./pokemon/zweilous'><PokeButton></PokeButton></Link>
                         <Link to='./pokemon/huntail'><PokeButton></PokeButton></Link>
                         <Link><FightButton></FightButton></Link>
                     </div>
