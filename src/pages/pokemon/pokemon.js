@@ -73,7 +73,9 @@ function Pokemon() {
           <h3>{'VIDA:' + ' ' +myPokemon.vida*10+ ' ' + 'ATK:' + '' + myPokemon.ataque}</h3>
         </div>
       </div>
-        <EvolutionPokeButton></EvolutionPokeButton>
+        <Link to={`/pokemon/${myPokemon.primeraEvo}`}><button className="evolutionBotao1"></button></Link>
+        <Link to={`/pokemon/${myPokemon.segundaEvo}`}><button className="evolutionBotao2"></button></Link>
+        <Link to={`/pokemon/${myPokemon.terceiraEvo}`}><button className="evolutionBotao3"></button></Link>
       <div>
       {/* <Link to={`/pokemon/${"s"}`}>
         <button className="buttonBack"></button>

@@ -115,14 +115,20 @@ useEffect(() => { // é o responsavel por pegar as api dos pokemons, transforman
 useEffect (() => {
   const setPoke = async () => {
     try {
+      // coloquei "?." e "|| null" na linha acima pra não bugar na hora que colocamos um pokemon sem evolução na tela
+      const primeraEvo = evolution?.chain?.species?.name || null;
+      const segundaEvo = evolution?.chain?.evolves_to?.[0]?.species?.name || null;
+      const terceiraEvo = evolution?.chain?.evolves_to?.[0]?.evolves_to?.[0]?.species?.name || null;
+
       setMyPokemon({
         nome: pokemons.name,
         vida: pokemons.stats[0].base_stat,
         ataque: pokemons.stats[1].base_stat,
         tipo: myType,
         imagem: pokemons.sprites.other['official-artwork'].front_default,
-        evolucao: evolution.chain?.evolves_to?.[0]?.species?.name
-        // coloquei "?." e "|| null" na linha acima pra não bugar na hora que colocamos um pokemon sem evolução na tela
+        primeraEvo,
+        segundaEvo,
+        terceiraEvo
       });
     
       console.log(myPokemon);
