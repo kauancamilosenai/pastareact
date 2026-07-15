@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { getPokemonDB, savePokemonDB } from '../utils/pokemondb';
 
+// parte onde definimos o useFetch
+// definindo a const["quemAlteramos", "quemVaiAlterar"] = useState(tipoDoRetorno)
 function useFetchPokeapi(pokeid) {
   console.log('iniciando construção da pagina')
   const [pokemons, setPokemons] = useState({});
@@ -11,6 +13,7 @@ function useFetchPokeapi(pokeid) {
   const [evolution, setEvolutions] = useState ({});
   const [myPokemon, setMyPokemon] = useState({});
   const [myType, setMyType] = useState('');
+  const [checkEvolution, setCheckEvolution] = useState(Boolean);
 
   
 useEffect(() => { //esse useEffect existe para colocarmos tipos personalizados dos pokemons de acordo com a API, sendo assim, será possível fazer nosso proprio agrupamento de pokemons
@@ -49,7 +52,7 @@ getMyType();
     }, [pokemons]);
 
 
-//PRIMEIRO
+//useEffect que faz a busca do pokemon no banco de dados do navegador e caso não encontre faz a captura dos dados direto da api
   useEffect(() => { // inverti a ordem da chamada da api e do banco de dados do navegador pois estava dando problema no meu código
   const getData = async () => {
     try {
@@ -63,14 +66,15 @@ getMyType();
       const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokeid}`);
       setPokemons(res.data);
       setLoading(false);
-    } catch (err) {
+    } 
+    catch (err) {
       console.error("Erro ao carregar API", err);
       setLoading(false);
       setError(true);
     }
   };
 
-  getData(); // <- essa linha estava faltando
+  getData(); 
 }, [pokeid]);
 
 
@@ -94,9 +98,11 @@ useEffect(() => { // é o responsavel por pegar as api dos pokemons, transforman
 useEffect(() => { // é o responsavel por pegar as api dos pokemons, transformando em id na pagina dos pokemons
   const getEvolutions = async () => {
     try {
+      if ((especies.evolution_chain.url, {}) < 2){
       const res = await axios.get(especies.evolution_chain.url, {}); //nessa linha o código esta tentando buscar a api do pokemon escolhido
       setEvolutions(res.data);
       console.log('Success:', res.data);
+      }
     }
     catch (err) { // caso não consiga pegar a api do pokemon o erro entra
       console.error("Erro ao carregar API", err);
@@ -106,8 +112,8 @@ useEffect(() => { // é o responsavel por pegar as api dos pokemons, transforman
 }, [especies]);
 
 
-//QUARTO
-useEffect(() => {
+//esté useEffect é onde definimos as informações que usaremos no nosso site
+useEffect (() => {
   const setPoke = async () => {
     try {
       setMyPokemon({
@@ -116,13 +122,15 @@ useEffect(() => {
         ataque: pokemons.stats[1].base_stat,
         tipo: myType,
         imagem: pokemons.sprites.other['official-artwork'].front_default,
-        evolucao: evolution.chain?.evolves_to?.[0]?.species?.name || null 
+        evolucao: evolution.chain?.evolves_to?.[0]?.species?.name
+        // coloquei "?." e "|| null" na linha acima pra não bugar na hora que colocamos um pokemon sem evolução na tela
       });
     
       console.log(myPokemon);
       await savePokemonDB(myPokemon);
       setLoading(false);
-    } catch (err) {
+    } 
+    catch (err) {
       console.error(err);
     }
   };
