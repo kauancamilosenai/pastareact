@@ -141,4 +141,4 @@ useEffect (() => {
 
   return { myPokemon, loading, error }
 }
-export default useFetchPokeapi;
+export default useFetchPokeapi; // fim
